@@ -1,27 +1,35 @@
 package com.sirgiyenko.App_warehouse.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-@Table(name = "CUSTOMER")
-public class Customer {
+@Table(name = "PRODUCT_OWNER")
+public class ProductOwner {
 
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
-    @Column(name = "CUSTOMER_ID", nullable = false)
+    @Column(name = "PRODUCT_OWNER_ID", nullable = false)
+    @JsonIgnore
     private int id;
 
-    @Column(name = "CUSTOMER_FIRST_NAME", length = 20, nullable = false)
+    @Column(name = "PRODUCT_OWNER_FIRST_NAME", length = 20, nullable = false)
+    @JsonProperty("firstName")
     private String firstName;
 
-    @Column(name = "CUSTOMER_LAST_NAME", length = 20, nullable = false)
+    @Column(name = "PRODUCT_OWNER_LAST_NAME", length = 20, nullable = false)
+    @JsonProperty("lastName")
     private String lastName;
 
-    @Column(name = "CUSTOMER_COMPANY", length = 20)
+    @Column(name = "PRODUCT_OWNER_COMPANY", length = 20)
+    @JsonProperty("company")
     private String company;
 
-    @Column(name = "CUSTOMER_STATUS", nullable = false)
+    @Column(name = "PRODUCT_OWNER_STATUS", nullable = false)
+    @JsonIgnore
     private String status;
 
 
@@ -67,7 +75,7 @@ public class Customer {
 
     @Override
     public String toString() {
-        return "Customer{" +
+        return "ProductOwner{" +
                 "id=" + id +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
@@ -79,13 +87,13 @@ public class Customer {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Customer)) return false;
-        Customer customer = (Customer) o;
-        return getId() == customer.getId() &&
-                Objects.equals(getFirstName(), customer.getFirstName()) &&
-                Objects.equals(getLastName(), customer.getLastName()) &&
-                Objects.equals(getCompany(), customer.getCompany()) &&
-                Objects.equals(getStatus(), customer.getStatus());
+        if (!(o instanceof ProductOwner)) return false;
+        ProductOwner productOwner = (ProductOwner) o;
+        return getId() == productOwner.getId() &&
+                Objects.equals(getFirstName(), productOwner.getFirstName()) &&
+                Objects.equals(getLastName(), productOwner.getLastName()) &&
+                Objects.equals(getCompany(), productOwner.getCompany()) &&
+                Objects.equals(getStatus(), productOwner.getStatus());
     }
 
     @Override
