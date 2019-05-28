@@ -7,15 +7,56 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="func.js"></script>
     <link rel="stylesheet" href="tableCustomers.css">
+    <link rel="stylesheet" href="formNewOwner.css">
+	<link rel="stylesheet" href="buttons.css">
 </head>
 
 <body>
 <h1>Options</h1>
 
-<button type="allOwnersButton" onclick="jsonVisOnClick();">
-    show all product owners</button>
+<div class="allOwnersButtons">
+<button id="showAllOwnersButton" onclick="returnJsonAllOwnersOnClick();">
+    all active product owners
+</button>
+
+<button id="addNewOwnerButton" onclick="addOwnerOnClick();">
+    new product owner
+</button>
+</div>
 
 <table id="customers"></table>
+
+<div id="newOwner">
+    <div class="row">
+        <div class="col-25">
+            <label for="fname">First Name</label>
+        </div>
+        <div class="col-65">
+            <input type="text" id="fname" name="firstname">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-25">
+            <label for="lname">Last Name</label>
+        </div>
+        <div class="col-65">
+            <input type="text" id="lname" name="lastname">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-25">
+            <label for="company">Company</label>
+        </div>
+        <div class="col-65">
+            <input type="text" id="company" name="company">
+        </div>
+    </div>
+    <div id="submitNewOwnerButton">
+        <button onclick="submitNewOwnerOnClick();">
+                submit
+         </button>
+    </div>
+</div>
 
 </body>
 

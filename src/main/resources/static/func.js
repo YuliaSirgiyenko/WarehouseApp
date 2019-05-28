@@ -1,8 +1,11 @@
-function jsonVisOnClick(){
-$.get('/get-all-owners', onAnswer);
+function returnJsonAllOwnersOnClick(){
+$.get('/get-all-owners', onAnswerAllOwners);
 }
 
-function onAnswer(response){
+function onAnswerAllOwners (response){
+    $('#newOwner').hide();
+    $('#customers').empty();
+    $('#customers').show();
 
     var tableOwners = document.getElementById('customers');
 
@@ -39,5 +42,32 @@ function onAnswer(response){
         tr.appendChild(td3);
         td3.innerText = item.company;
     });
+
+}
+
+function addOwnerOnClick(){
+$('#customers').hide();
+$('#newOwner').show();
+$('#fname').val('');
+$('#lname').val('');
+$('#company').val('');
+}
+
+function submitNewOwnerOnClick(){
+
+$.post(
+  "/add-new-owner",
+  {
+    firstName : $('#fname').val(),
+    lastName : $('#lname').val(),
+    company : $('#company').val(),
+  },
+  onPostOwnerSuccess
+);
+
+function onPostOwnerSuccess(response)
+{
+    alert(response);
+}
 
 }

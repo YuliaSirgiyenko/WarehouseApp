@@ -17,13 +17,12 @@ public interface ProductOwnerService {
     List<ProductOwner> getAllProductOwners();
 
     /**
-     * Create of new product owner.
+     * Create of new product owner (it always is created as ACTIVE).
      * @param firstName
      * @param lastName
      * @param company
-     * @param status
      * @return ProductOwner entity.
      */
-    ProductOwner createProductOwner(String firstName, String lastName, String company, String status);
+    ProductOwner createProductOwner(String firstName, String lastName, String company);
 
 }

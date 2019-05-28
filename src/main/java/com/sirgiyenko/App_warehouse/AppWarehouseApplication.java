@@ -11,10 +11,8 @@ public class AppWarehouseApplication {
 	public static void main(String[] args) {
 		ConfigurableApplicationContext context = SpringApplication.run(AppWarehouseApplication.class, args);
 
-		ProductOwnerService service = context.getBean(ProductOwnerService.class);
-		System.out.println(service.getAllProductOwners());
-
-		//service.createCustomer("Loki", "Dinn", "XXX", "ACTIVE");
+		//ProductOwnerService service = context.getBean(ProductOwnerService.class);
+		//service.createProductOwner("", "Dinn", "XXX");
 
 	}
 
