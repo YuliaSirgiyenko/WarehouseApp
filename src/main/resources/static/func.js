@@ -62,10 +62,10 @@ $.post(
     lastName : $('#lname').val(),
     company : $('#company').val(),
   },
-  onPostOwnerSuccess
+  onPostOwnerAnswer
 );
 
-function onPostOwnerSuccess(response)
+function onPostOwnerAnswer(response)
 {
     alert(response);
 }
